@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sprout/services/user_storage.dart'; // add this import
 
 void main() {
   // Entry point: run the app by instantiating (creating a new instance) 
@@ -167,7 +168,8 @@ class _AgeInputScreenState extends State<AgeInputScreen> {
     );
 
     if (confirmed == true) {
-      // TODO: Save age to profile / storage here before navigating.
+      // Save age locally, then navigate.
+      await UserStorage.saveAge(age);
       if (!mounted) return;
       Navigator.of(context).pushReplacementNamed('/customize');
     } else {
@@ -230,9 +232,12 @@ class _CharacterCustomizationScreenState extends State<CharacterCustomizationScr
   int hairIndex = 0;
   Color color = Colors.green;
 
-  void _saveAndContinue() {
-    // Persist profile here (shared_preferences / backend) before navigating.
-    // For now, just navigate to Home and assume the profile was saved.
+  void _saveAndContinue() async {
+    // persist locally
+    await UserStorage.saveCustomization(hairIndex: hairIndex, color: color);
+
+    // Ensure widget still mounted before using context (avoids use_build_context_synchronously)
+    if (!mounted) return;
     Navigator.of(context).pushReplacementNamed('/home');
   }
 
