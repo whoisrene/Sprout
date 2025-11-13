@@ -443,12 +443,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-// OLD (deprecated)
-final bg = Colors.green.withOpacity(0.6);
-
-// Option A - use withAlpha (simple and exact)
-final bg = Colors.green.withAlpha((0.6 * 255).round());
-
-// Option B - use Color.fromRGBO with explicit opacity
-final bg = Color.fromRGBO(76, 175, 80, 0.6); // r,g,b from the color you used
