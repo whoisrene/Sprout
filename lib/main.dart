@@ -246,7 +246,7 @@ class _AgeInputScreenState extends State<AgeInputScreen> with SingleTickerProvid
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.08),
+                      color: Colors.black.withValues(alpha:0.08),
                       blurRadius: 10,
                       offset: const Offset(0, 6),
                     ),
@@ -411,7 +411,6 @@ class _CharacterCustomizationScreenState extends State<CharacterCustomizationScr
   }
 }
 
-<<<<<<< HEAD
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
@@ -444,7 +443,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-=======
-
-```
->>>>>>> 70eca6be0c92fe01c07d97747cf071608393a4ec
