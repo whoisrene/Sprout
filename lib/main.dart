@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprout/services/user_storage.dart';
+import 'package:sprout/screens/home_wrapper.dart';
 
 // global notifier so any widget can update theme
 final ValueNotifier<ThemeMode> themeModeNotifier = ValueNotifier(ThemeMode.system);
@@ -41,7 +42,7 @@ class SproutApp extends StatelessWidget {
             '/': (_) => const SplashScreen(),
             '/auth': (_) => const AuthScreen(),
             '/age': (_) => const AgeInputScreen(), // NEW: Age input before customization
-            '/home': (_) => const HomeScreen(),
+            '/home': (_) => const HomeWrapper(), // Main home with sidebar navigation
             '/customize': (_) => const CharacterCustomizationScreen(),
           },
         );
@@ -101,18 +102,17 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 }
 
 class AuthScreen extends StatelessWidget {
+  // Authentication screen offering sign in or create account actions.
   const AuthScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Minimal mock auth UI. Replace with real auth logic later.
     return Scaffold(
       appBar: AppBar(title: const SizedBox.shrink()),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Put an image between the AppBar/title and the buttons.
             // By default this uses a network image so you don't need to add
@@ -246,7 +246,7 @@ class _AgeInputScreenState extends State<AgeInputScreen> with SingleTickerProvid
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.08),
+                      color: Colors.black.withOpacity(0.08),
                       blurRadius: 10,
                       offset: const Offset(0, 6),
                     ),
@@ -411,6 +411,7 @@ class _CharacterCustomizationScreenState extends State<CharacterCustomizationScr
   }
 }
 
+<<<<<<< HEAD
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
@@ -443,3 +444,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+=======
+
+```
+>>>>>>> 70eca6be0c92fe01c07d97747cf071608393a4ec
