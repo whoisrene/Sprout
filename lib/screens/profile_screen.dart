@@ -1,3 +1,4 @@
+import 'dart:developer' as logger;
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -6,8 +7,9 @@ class ProfileScreen extends StatelessWidget {
   // Placeholder user data; replace with real model/data source
   final String _username = 'Jane Doe';
   final String _profileImage = 'https://picsum.photos/600';
-  final List<String> _badges = ['Starter', 'Growth', 'Mentor'];
-  final Map<String, String> _stats = {
+  // mark literals const so the widget can have a const constructor
+  final List<String> _badges = const ['Starter', 'Growth', 'Mentor'];
+  final Map<String, String> _stats = const {
     'Most seeds at once': '1,250',
     'Lessons completed': '42',
     'Friends': '18',
